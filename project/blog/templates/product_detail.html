@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Product: {{ product.name }}</h1>
+<p>Price: ${{ product.price }}</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Delete product</button>
+</form>
+<a href="{% url 'category_list' %}">Back</a>
+{% endblock %}

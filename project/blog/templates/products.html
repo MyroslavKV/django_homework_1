@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Productes in categories: {{ category.name }}</h1>
+<ul>
+  {% for product in products %}
+    <li><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a> - ${{ product.price }}</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'category_list' %}">Back</a>
+{% endblock %}
