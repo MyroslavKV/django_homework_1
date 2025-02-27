@@ -1,12 +1,14 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
+{% block title %}Product List{% endblock %}
 
 {% block content %}
-<h1>Productes in categories: {{ category.name }}</h1>
-<ul>
-  {% for product in products %}
-    <li><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a> - ${{ product.price }}</li>
-  {% endfor %}
-</ul>
-<a href="{% url 'category_list' %}">Back</a>
+    <h1>Product List</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - {{ product.price }} USD</li>
+        {% empty %}
+            <p>No products available.</p>
+        {% endfor %}
+    </ul>
 {% endblock %}
